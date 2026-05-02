@@ -1,65 +1,45 @@
 export default function Home() {
   return (
-    <div style={styles.body}>
-
-      {/* NAV */}
-      <div style={styles.nav}>
+    <div>
+      <nav style={nav}>
         <h2>NexLabs.ai</h2>
-
-        <div>
+        <div style={{ display: "flex", gap: 20 }}>
           <a href="/about">About</a>
           <a href="/services">Services</a>
           <a href="/design">Design</a>
           <a href="/lumina">Lumina</a>
           <a href="/contact">Contact</a>
         </div>
-      </div>
+      </nav>
 
-      {/* HERO */}
-      <div style={styles.hero}>
-        <h1 style={{ fontSize: 60 }}>NexLabs.ai</h1>
+      <section style={hero}>
+        <h1 style={{ fontSize: 70 }}>NexLabs.ai</h1>
         <p>AI • Apps • Websites • Graphic Design Studio</p>
 
-        <a href="/lumina">
-          <button>Explore Lumina.ai</button>
-        </a>
+        <button>Explore Lumina</button>
+        <button style={{ marginLeft: 10 }}>Start Project</button>
+      </section>
 
-        <a href="/services">
-          <button style={{ marginLeft: 10 }}>Our Services</button>
-        </a>
-      </div>
-
-      {/* SERVICES PREVIEW */}
-      <div style={styles.section}>
-        <h2>What We Do</h2>
-        <p>AI Development • Websites • Apps • Graphic Design</p>
-      </div>
-
+      <section style={section}>
+        <h2>We build modern digital systems</h2>
+        <p>Clean. Minimal. Powerful. Black & White only.</p>
+      </section>
     </div>
   );
 }
 
-const styles = {
-  body: {
-    background: "#000",
-    color: "#fff",
-    fontFamily: "Arial",
-    margin: 0,
-  },
+const nav = {
+  display: "flex",
+  justifyContent: "space-between",
+  padding: 20,
+  borderBottom: "1px solid #222"
+};
 
-  nav: {
-    display: "flex",
-    justifyContent: "space-between",
-    padding: 20,
-    borderBottom: "1px solid rgba(255,255,255,0.1)",
-  },
+const hero = {
+  padding: "120px 60px"
+};
 
-  hero: {
-    textAlign: "center",
-    padding: "120px 20px",
-  },
-
-  section: {
-    padding: 60,
-  },
+const section = {
+  padding: 60,
+  borderTop: "1px solid #222"
 };
