@@ -1,6 +1,14 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Sidebar from "../components/Sidebar";
 
+export default function About() {
+
+  return (
+
+    <div style={{ display: "flex" }}>
+
+      <Sidebar />
 export default function About() {
   return (
     <div style={styles.page}>
