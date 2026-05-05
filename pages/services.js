@@ -1,73 +1,132 @@
+import { motion } from "framer-motion";
+
 export default function Services() {
   return (
-    <div style={styles.body}>
+    <div style={styles.page}>
 
-      {/* NAV */}
-      <div style={styles.nav}>
-        <h2>NexLabs.ai</h2>
+      {/* HERO */}
+      <section style={styles.hero}>
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          style={styles.title}
+        >
+          Services
+        </motion.h1>
 
-        <div>
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/design">Design</a>
-          <a href="/lumina">Lumina</a>
-          <a href="/contact">Contact</a>
+        <p style={styles.subtitle}>
+          We build powerful digital systems with precision and clarity.
+        </p>
+      </section>
+
+      {/* SERVICES GRID */}
+      <section style={styles.section}>
+        <div style={styles.grid}>
+          <Card title="AI Development" text="Custom AI tools and systems." />
+          <Card title="Web Development" text="Fast, modern websites." />
+          <Card title="App Development" text="Mobile-first applications." />
+          <Card title="Automation" text="Workflows that save time." />
         </div>
-      </div>
+      </section>
 
-      {/* CONTENT */}
-      <div style={styles.container}>
-        <h1>Our Services</h1>
-        <p>We build modern digital solutions for ideas, businesses, and brands.</p>
+      {/* PROCESS */}
+      <section style={styles.section}>
+        <h2 style={{ marginBottom: 30 }}>Process</h2>
 
-        <div style={styles.card}>
-          <h2>AI Development</h2>
-          <p>Custom AI tools, assistants, and automation systems for productivity.</p>
+        <div style={styles.grid}>
+          <Step num="01" title="Understand" />
+          <Step num="02" title="Build" />
+          <Step num="03" title="Launch" />
         </div>
+      </section>
 
-        <div style={styles.card}>
-          <h2>Website Development</h2>
-          <p>Fast, modern, responsive websites for startups and businesses.</p>
-        </div>
-
-        <div style={styles.card}>
-          <h2>Mobile App Development</h2>
-          <p>Android and iOS apps with clean UI and smooth performance.</p>
-        </div>
-
-        <div style={styles.card}>
-          <h2>Graphic Design</h2>
-          <p>Logos, branding, posters, ads, and social media creatives.</p>
-        </div>
-      </div>
+      {/* CTA */}
+      <section style={styles.cta}>
+        <h2>Start your project with NexLabs</h2>
+        <button style={styles.button}>Contact Us</button>
+      </section>
 
     </div>
   );
 }
 
+/* COMPONENTS */
+
+function Card({ title, text }) {
+  return (
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      style={styles.card}
+    >
+      <h3>{title}</h3>
+      <p style={{ marginTop: 10 }}>{text}</p>
+    </motion.div>
+  );
+}
+
+function Step({ num, title }) {
+  return (
+    <div style={styles.step}>
+      <h1>{num}</h1>
+      <p>{title}</p>
+    </div>
+  );
+}
+
+/* STYLES */
+
 const styles = {
-  body: {
+  page: {
     background: "#000",
     color: "#fff",
-    fontFamily: "Arial",
-    margin: 0,
   },
 
-  nav: {
-    display: "flex",
-    justifyContent: "space-between",
-    padding: 20,
-    borderBottom: "1px solid rgba(255,255,255,0.1)",
+  hero: {
+    padding: "160px 60px 80px",
   },
 
-  container: {
-    padding: 60,
-    maxWidth: 900,
+  title: {
+    fontSize: 64,
+  },
+
+  subtitle: {
+    marginTop: 10,
+    maxWidth: 500,
+  },
+
+  section: {
+    padding: "80px 60px",
+  },
+
+  grid: {
+    display: "grid",
+    gap: 20,
+    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
   },
 
   card: {
-    border: "1px solid rgba(255,255,255,0.2)",
-    padding: 20,
+    padding: 30,
+    background: "#0a0a0a",
+    border: "1px solid #111",
+  },
+
+  step: {
+    padding: 30,
+    border: "1px solid #111",
+  },
+
+  cta: {
+    padding: "120px 60px",
+    textAlign: "center",
+    borderTop: "1px solid #111",
+  },
+
+  button: {
     marginTop: 20,
+    padding: "12px 22px",
+    background: "#fff",
+    color: "#000",
+    border: "none",
   },
 };
